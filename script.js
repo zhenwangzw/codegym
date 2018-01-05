@@ -1,4 +1,8 @@
 (function(){
   const heading=document.querySelector('.heading')
-  alert(heading.innerHTML)
+
+  setTimeout(() => {
+    alert(heading.innerHTML)
+  }, 3000)
+
 })()
