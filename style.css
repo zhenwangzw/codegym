@@ -1,7 +1,7 @@
 /* define global variables */
 :root{
   --html-bg-color: #e3e3e3;
-  --wrapper-bg-color: #000;
+  --wrapper-bg-color: #2a2a2a;
   --btn-bg-color: #3e3e3e;
   --hover-width: 60%;
   --hover-left-bg-color: rgba(156, 160, 70, 0.3);
@@ -21,7 +21,6 @@
 
 html, 
 body{
-  background: var(--html-bg-color);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-rendering: optimizeLegibility;
 }
@@ -51,7 +50,6 @@ h1{
   left: 50%;
   transform: translateX(-50%);
   border: 2px solid #fff;
-  /* transition: background-color 200ms, border 200ms, color 200ms; */
   transition: all 200ms;
 }
 
@@ -59,6 +57,7 @@ h1{
   color: #3e3e3e;
   background: #fff;
 }
+
 
 .wrapper{
   position: relative;
@@ -73,7 +72,7 @@ h1{
   top: 70%;
   width: 100%;
   height: 30%;
-  background: #2a2a2a;
+  background: var(--wrapper-bg-color);
   text-align: center;
   font-size: 4rem;
   font-weight: 100;
@@ -118,7 +117,6 @@ h1{
   z-index: 2;
 }
 
-/* when hover left */
 .hover-left .split.left{
   width: var(--hover-width);
 }
@@ -134,7 +132,6 @@ h1{
   width: var(--other-width);
 }
 
-/* when hover mid */
 .hover-mid .split.mid{
   left: 20%;
   width: var(--hover-width);
@@ -148,7 +145,6 @@ h1{
   width: var(--other-width);
 }
 
-/* when hover right */
 .hover-right .split.right{
   width: var(--hover-width);
 }
@@ -171,50 +167,93 @@ h1{
 .split.mid::before,
 .split.right::before{
   transition: var(--speed) all ease-in-out;
-}
+} 
 
 
 /* =============CSS Grid Layout============= */
-/* .wrapper{
+/* 
+.wrapper{
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   background-color: var(--wrapper-bg-color);
   display: grid;
   grid-template-areas: "left mid right";
   grid-template-columns: repeat(3, 1fr);
+  transition: 1s all;
 }
+.wrapper::after{
+  position: absolute;
+  content: "threesplits";
+  top: 70%;
+  width: 100%;
+  height: 30%;
+  background: #2a2a2a;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 100;
+  color: #e5e5e5;
+  box-sizing: border-box;
+}
+
 .hover-left{
   grid-template-columns: 60% 20% 20%;
 }
+.hover-left .split.left::before{
+  background: var(--hover-left-bg-color);
+  z-index: 0;
+}
+
 .hover-mid{
   grid-template-columns: 20% 60% 20%;
 }
+.hover-mid .split.mid::before{
+  background: var(--hover-mid-bg-color);
+  z-index: 0;
+}
+
 .hover-right{
   grid-template-columns: 20% 20% 60%;
 }
+.hover-right .split.right::before{
+  background: var(--hover-right-bg-color);
+  z-index: 0;
+}
+
 
 .split{
+  position: relative;
   overflow: hidden;
 }
 
 .split.left{
   grid-area: "left";
-  background: url("img/IMG_4326.JPG") center center no-repeat;
+  background: url("img/IMG_4380.JPG") center center no-repeat;
   background-size: cover;
-}
-
-.split.left,
-.split.left::before{
-  transition: 2000ms all ease-in-out;
+  transition: 1s all;
 }
 
 .split.mid{
   grid-area: "mid";
-  background: url("img/IMG_4380.JPG") center center no-repeat;
+  background: url("img/IMG_4326.JPG") center center no-repeat;
   background-size: cover;
+  transition: 1s all;
 }
 .split.right{
   grid-area: "right";
   background: url("img/IMG_2452.JPG") center center no-repeat;
   background-size: cover;
+  transition: 1s all;
+}
+
+.split.left::before,
+.split.mid::before,
+.split.right::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--other-bg-color);
+  z-index: 2;
+  transition: 1s all;
 } */
+
