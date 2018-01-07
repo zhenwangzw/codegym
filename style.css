@@ -71,6 +71,7 @@ h1{
 }
 
 .split{
+  position: relative;
   overflow: hidden;
 }
 
