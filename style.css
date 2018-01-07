@@ -3,11 +3,12 @@
   --html-bg-color: #e3e3e3;
   --wrapper-bg-color: #000;
   --btn-bg-color: #3e3e3e;
-  --left-bg-color: rgba(167, 26, 85, 0.5);
-  --mid-bg-color: rgba(233,233,233,0.3);
-  --right-bg-color: rgba(233,233,233,0.3);
   --hover-width: 60%;
+  --hover-left-bg-color: rgba(156, 160, 70, 0.3);
+  --hover-mid-bg-color: rgba(167, 26, 85, 0.5);
+  --hover-right-bg-color: rgba(20, 96, 100, 0.3);
   --other-width: 20%;
+  --other-bg-color: rgba(49, 49, 49, 0.9);
   --speed: 600ms;
 }
 
@@ -42,13 +43,21 @@ h1{
   color: #fff;
   font-size: 1rem;
   padding: 1rem;
-  background: var(--btn-bg-color);
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
   top: 40%;
   left: 50%;
   transform: translateX(-50%);
+  border: 2px solid #fff;
+  /* transition: background-color 200ms, border 200ms, color 200ms; */
+  transition: all 200ms;
+}
+
+.button:hover{
+  color: #3e3e3e;
+  background: #fff;
 }
 
 .wrapper{
@@ -58,49 +67,26 @@ h1{
   background: var(--wrapper-bg-color);
 }
 
-/* when hover left */
-.hover-left .split.left{
-  width: var(--hover-width);
-}
-.hover-left .split.mid{
-  left: 60%;
-}
-.hover-left .split.mid,
-.hover-left .split.right{
-  width: var(--other-width);
-  /* z-index: 2; */
-}
-
-/* when hover mid */
-.hover-mid .split.mid{
-  left: 20%;
-  width: var(--hover-width);
-}
-.hover-mid .split.left,
-.hover-mid .split.right{
-  width: var(--other-width);
-  /* z-index: 2; */
-}
-
-/* when hover right */
-.hover-right .split.right{
-  width: var(--hover-width);
-}
-.hover-right .split.left,
-.hover-right .split.mid{
-  width: var(--other-width);
-  /* z-index: 2; */
-}
-.hover-right .split.mid{
-  left: 20%;
+.wrapper::after{
+  position: absolute;
+  content: "threesplits";
+  top: 70%;
+  width: 100%;
+  height: 30%;
+  background: #2a2a2a;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 100;
+  color: #e5e5e5;
+  box-sizing: border-box;
 }
 
 .split{
   position: absolute;
-  top: 15%;
   width: 33.33333333%;
   height: 70%;
   overflow: hidden;
+  transition: var(--speed) all ease-in-out;
 }
 
 .split.left{
@@ -121,14 +107,72 @@ h1{
   background-size: cover;
 }
 
+.split.left::before,
+.split.mid::before,
+.split.right::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--other-bg-color);
+  z-index: 2;
+}
+
+/* when hover left */
+.hover-left .split.left{
+  width: var(--hover-width);
+}
+.hover-left .split.left::before{
+  background: var(--hover-left-bg-color);
+  z-index: 0;
+}
+.hover-left .split.mid{
+  left: 60%;
+}
+.hover-left .split.mid,
+.hover-left .split.right{
+  width: var(--other-width);
+}
+
+/* when hover mid */
+.hover-mid .split.mid{
+  left: 20%;
+  width: var(--hover-width);
+}
+.hover-mid .split.mid::before{
+  background: var(--hover-mid-bg-color);
+  z-index: 0;
+}
+.hover-mid .split.left,
+.hover-mid .split.right{
+  width: var(--other-width);
+}
+
+/* when hover right */
+.hover-right .split.right{
+  width: var(--hover-width);
+}
+.hover-right .split.right::before{
+  background: var(--hover-right-bg-color);
+  z-index: 0;
+}  
+.hover-right .split.left,
+.hover-right .split.mid{
+  width: var(--other-width);
+}  
+.hover-right .split.mid{
+  left: 20%;
+}  
+
 .split.left,
 .split.mid,
 .split.right,
-.split.left:before,
-.split.mid:before,
-.split.right:before{
+.split.left::before,
+.split.mid::before,
+.split.right::before{
   transition: var(--speed) all ease-in-out;
 }
+
 
 /* =============CSS Grid Layout============= */
 /* .wrapper{
@@ -160,7 +204,7 @@ h1{
 }
 
 .split.left,
-.split.left:before{
+.split.left::before{
   transition: 2000ms all ease-in-out;
 }
 
