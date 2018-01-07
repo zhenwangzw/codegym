@@ -51,8 +51,87 @@ h1{
   transform: translateX(-50%);
 }
 
-/* =============CSS Grid Layout============= */
 .wrapper{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: var(--wrapper-bg-color);
+}
+
+/* when hover left */
+.hover-left .split.left{
+  width: var(--hover-width);
+}
+.hover-left .split.mid{
+  left: 60%;
+}
+.hover-left .split.mid,
+.hover-left .split.right{
+  width: var(--other-width);
+  /* z-index: 2; */
+}
+
+/* when hover mid */
+.hover-mid .split.mid{
+  left: 20%;
+  width: var(--hover-width);
+}
+.hover-mid .split.left,
+.hover-mid .split.right{
+  width: var(--other-width);
+  /* z-index: 2; */
+}
+
+/* when hover right */
+.hover-right .split.right{
+  width: var(--hover-width);
+}
+.hover-right .split.left,
+.hover-right .split.mid{
+  width: var(--other-width);
+  /* z-index: 2; */
+}
+.hover-right .split.mid{
+  left: 20%;
+}
+
+.split{
+  position: absolute;
+  top: 15%;
+  width: 33.33333333%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.split.left{
+  left: 0;
+  background: url("img/IMG_4380.JPG") center center no-repeat;
+  background-size: cover;
+}
+
+.split.mid{
+  left: 33.33333333%;
+  background: url("img/IMG_4326.JPG") center center no-repeat;
+  background-size: cover;
+}
+
+.split.right{
+  right: 0;
+  background: url("img/IMG_2452.JPG") center center no-repeat;
+  background-size: cover;
+}
+
+.split.left,
+.split.mid,
+.split.right,
+.split.left:before,
+.split.mid:before,
+.split.right:before{
+  transition: var(--speed) all ease-in-out;
+}
+
+/* =============CSS Grid Layout============= */
+/* .wrapper{
   width: 100%;
   height: 100vh;
   background-color: var(--wrapper-bg-color);
@@ -71,7 +150,6 @@ h1{
 }
 
 .split{
-  position: relative;
   overflow: hidden;
 }
 
@@ -95,4 +173,4 @@ h1{
   grid-area: "right";
   background: url("img/IMG_2452.JPG") center center no-repeat;
   background-size: cover;
-}
+} */
