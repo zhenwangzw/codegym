@@ -1,5 +1,4 @@
-(function(window){
-  window=this
+(function(global){
 
   const wrapper=document.querySelector('.wrapper')
   const left=document.querySelector('.left')
@@ -26,4 +25,4 @@
     wrapper.classList.remove('hover-right')
   })
 
-})()
+})(window)
