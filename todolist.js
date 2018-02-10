@@ -1,11 +1,44 @@
 console.log('have fun')
 
+$(document).ready(function(){
+  $('.modal').modal({
+    dismissible: true, // Modal can be dismissed by clicking outside of the modal
+    opacity: .5, // Opacity of modal background
+    inDuration: 300, // Transition in duration
+    outDuration: 200, // Transition out duration
+    startingTop: '4%', // Starting top style attribute
+    endingTop: '10%', // Ending top style attribute
+    ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+      // alert("Ready");
+      console.log('modal open:',modal);
+      console.log('trigger open:',trigger);
+    },
+    complete: function(modal) { 
+      // alert('Closed'); // Callback for Modal close
+      console.log('modal close:',modal)
+    } 
+  });
+})
+
+
+
+
 // Define UI variables
 const form=document.querySelector('#todolist-form')
 const todolist=document.querySelector('.collection')
 const clearBtn=document.querySelector('.clear-list')
 const filter=document.querySelector('#filter')
 const todoiteminput=document.querySelector('#todoitem')
+const myBtn=document.querySelector('#myBtn')
+
+
+// Modal variables
+const confirmModal=document.querySelector('.modal')
+const confirmTitle=document.querySelector('#confirmTitle')
+const confirmMsg=document.querySelector('#confirmMsg')
+const noBtn=document.querySelector('#modal-btn-no')
+const yesBtn=document.querySelector('#modal-btn-yes')
+
 
 // Create DOM UI for item
 function createToDoItemUIElement(item){
@@ -57,6 +90,8 @@ function loadEventListeners(){
   filter.addEventListener('keyup', filterToDoList)
 }
 
+
+
 // Add to do item
 function addToDoItem(e){
   let item=todoiteminput.value
@@ -92,11 +127,13 @@ function storeToDoItemInLocalStorage(item){
 
 // Remove to do item
 function removeToDoItem(e){
+
   // Event delegation
   if(e.target.parentElement.classList.contains('delete-item')){
-    
+
     // Get to do item content
     let itemTitle=e.target.parentElement.parentElement.textContent
+    confirmTitle.innerHTML=`Are you sure to remove: ${itemTitle}?`
     
     // Confirmation before delete
     if(confirm(`Are you sure to remove: ${itemTitle}?`)){
@@ -105,6 +142,8 @@ function removeToDoItem(e){
       removeToDoItemFromLocalStorage(itemTitle)
     }
   }
+
+  e.preventDefault();
 }
 
 // Remove item from localStorage
@@ -127,15 +166,22 @@ function removeToDoItemFromLocalStorage(item){
 
 // Clear to do list
 function clearToDoList(e){
-  // todolist.innerHTML='<h3>Bye Bye Bye!</h3>'
+  
+  confirmTitle.innerHTML='Are you sure to clear all?'
 
-  // Faster clear performance 
+  yesBtn.classList.add('clear-btn')
+
+  // Faster clear performance from UI
   if(confirm('Are you sure to clear all?')){
     while(todolist.firstChild){
       todolist.removeChild(todolist.firstChild)
     }
+
+    // Clear localStorage
     localStorage.clear()
   }
+
+  e.preventDefault();  
 }
 
 // Filter to do list
@@ -150,4 +196,6 @@ function filterToDoList(e){
       item.style.display='none'
     }
   })
+
+  e.preventDefault();  
 }
