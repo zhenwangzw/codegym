@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>number guessing game</title>
+</head>
+<body>
+  <div id="search-section">
+    <form id="search-form" action="https://www.google.co.nz/search" method="GET" target="blank">
+      <input id="search-text" name="query" type="text" placeholder="search on google">
+      <input id="search-btn" type="button" value="search">
+    </form>
+  </div>
+  <hr>
+  <div id="guess-section">
+    <p>Guess a number between <span id="min-num"></span> and <span id="max-num"></span></p>
+    <input id="guess-num" type="number">
+    <input id="guess-btn" type="button" value="guess">
+    <p id="guess-msg"></p>
+    <input id="restart-btn" type="button" value="play again">
+  </div>
+  <script src="guess.js"></script>
+</body>
+</html>

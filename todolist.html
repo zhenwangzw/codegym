@@ -10,6 +10,8 @@
 
   <!-- fontawsome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="todolist.css">
   <title>to-do-list</title>
 </head>
 <body>
@@ -36,10 +38,23 @@
               <label for="filter">Filter list</label>
             </div>
             <ul class="collection"></ul>
+            <a href="#confirmModal" class="btn modal-trigger" id="myBtn">Modal</a>
             <a href="#" class="clear-list btn black">Clear List</a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="confirmModal" name="confirmModal" class="modal">
+    <div class="modal-content">
+      <h4 id="confirmTitle">Modal Title</h4>
+      <p id="confirmMsg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam illum temporibus est error. Hic sapiente provident eveniet facilis maxime eius voluptatibus maiores. Magni, pariatur alias. Repudiandae, delectus? Provident, quia esse.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat" id="modal-btn-no">No</a>
+      <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat" id="modal-btn-yes">Yes</a>
     </div>
   </div>
 

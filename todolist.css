@@ -1,0 +1,9 @@
+.fa.fa-remove{
+  transition: all, 600ms;
+}
+
+.fa.fa-remove:hover,
+.fa.fa-remove:focus{
+  color: black;
+  cursor: pointer;
+}

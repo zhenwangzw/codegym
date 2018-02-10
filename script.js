@@ -1,4 +1,4 @@
-(function(global){
+;(function(global){
 
   const wrapper=document.querySelector('.wrapper')
   const left=document.querySelector('.left')
