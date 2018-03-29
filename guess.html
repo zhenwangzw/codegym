@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>number guessing game</title>
+  <style>
+    .alert.error{
+      color: white;
+      background-color: red;
+    }
+    .alert.success{
+      color: white;
+      background-color: green;
+    }
+    .delete{
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <div id="search-section">
@@ -21,6 +34,44 @@
     <p id="guess-msg"></p>
     <input id="restart-btn" type="button" value="play again">
   </div>
-  <script src="guess.js"></script>
+  <hr>
+  <div id="book-section">
+    <h1>add book to booklist</h1>
+    <div id="book-form-section">
+      <form id="book-form">
+        <div>
+          <label for="book-title">Add title:</label>
+          <input type="text" id="book-title">
+        </div>
+        <div>
+          <label for="book-author">Add author:</label>
+          <input type="text" id="book-author">
+        </div>
+        <div>
+          <label for="book-isbn">Add ISBN:</label>
+          <input type="text" id="book-isbn">
+        </div>
+        <input id="addbook" type="submit" value="submit">
+      </form>
+      <hr>
+      <table>
+        <thead>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th></th>
+        </thead>
+        <tbody id="booklist">
+        </tbody>
+      </table>
+    </div>
+    <hr>
+    <div id="async">
+      <input id="getDataBtn" type="button" value="get data">
+    </div>
+  </div>
+  <script type="text/javascript" src="guess.js"></script>
+  <script type="text/javascript" src="bookes6.js"></script>
+  <script type="text/javascript" src="async.js"></script>
 </body>
 </html>

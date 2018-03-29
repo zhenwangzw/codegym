@@ -21,8 +21,6 @@ $(document).ready(function(){
 })
 
 
-
-
 // Define UI variables
 const form=document.querySelector('#todolist-form')
 const todolist=document.querySelector('.collection')
@@ -169,8 +167,6 @@ function clearToDoList(e){
   
   confirmTitle.innerHTML='Are you sure to clear all?'
 
-  yesBtn.classList.add('clear-btn')
-
   // Faster clear performance from UI
   if(confirm('Are you sure to clear all?')){
     while(todolist.firstChild){
@@ -178,7 +174,7 @@ function clearToDoList(e){
     }
 
     // Clear localStorage
-    localStorage.clear()
+    localStorage.removeItem('to-do-list')
   }
 
   e.preventDefault();  
