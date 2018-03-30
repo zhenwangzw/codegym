@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MZTJXFP');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>number guessing game</title>
   <style>
-    .alert.error{
+    .alert.error {
       color: white;
       background-color: red;
     }
-    .alert.success{
+
+    .alert.success {
       color: white;
       background-color: green;
     }
-    .delete{
+
+    .delete {
       text-decoration: none;
     }
   </style>
 </head>
+
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZTJXFP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div id="search-section">
     <form id="search-form" action="https://www.google.co.nz/search" method="GET" target="blank">
       <input id="search-text" name="query" type="text" placeholder="search on google">
@@ -28,7 +57,10 @@
   </div>
   <hr>
   <div id="guess-section">
-    <p>Guess a number between <span id="min-num"></span> and <span id="max-num"></span></p>
+    <p>Guess a number between
+      <span id="min-num"></span> and
+      <span id="max-num"></span>
+    </p>
     <input id="guess-num" type="number">
     <input id="guess-btn" type="button" value="guess">
     <p id="guess-msg"></p>
@@ -74,4 +106,5 @@
   <script type="text/javascript" src="bookes6.js"></script>
   <script type="text/javascript" src="async.js"></script>
 </body>
+
 </html>
